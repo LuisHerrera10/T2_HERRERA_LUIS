@@ -1,0 +1,263 @@
+﻿@model T2_HERRERA_LUIS.Models.DistribuidorViewModel
+
+@{
+    ViewData["Title"] = "Lista de Distribuidores";
+}
+
+<h2 class="text-center mb-5">Lista de Distribuidores</h2>
+<div class="row mb-5">
+    <div class="col">
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#createModal">
+            Nuevo Distribuidor
+        </button>
+    </div>
+    <div class="col">
+        
+    </div>
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre de Distribuidor</th>
+            <th>Razon Social</th>
+            <th>Telefono</th>
+            <th>Año de Inicio de Operacion</th>
+            <th>Contacto</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dist in Model.distribuidores)
+        {
+            <tr>
+                <td>@dist.ID</td>
+                <td>@dist.NombreDistribuidor</td>
+                <td>@dist.RazonSocial</td>
+                <td>@dist.Telefono</td>
+                <td>@dist.AnioInicioOperacion</td>
+                <td>@dist.Contacto</td>
+                <td style="white-space:nowrap">
+                    <a class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editModal"
+                       data-id="@dist.ID" data-nombre="@dist.NombreDistribuidor" data-razon="@dist.RazonSocial"
+                       data-telefono="@dist.Telefono" data-anio="@dist.AnioInicioOperacion" data-contacto="@dist.Contacto">
+                        Editar
+                    </a>
+                    <a class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                       data-id="@dist.ID" data-nombre="@dist.NombreDistribuidor" data-razon="@dist.RazonSocial"
+                       data-telefono="@dist.Telefono" data-anio="@dist.AnioInicioOperacion" data-contacto="@dist.Contacto">
+                        Eliminar
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createModalLabel">Nuevo Distribuidor</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    
+                </button>
+            </div>
+            <form asp-controller="Distribuidor" asp-action="Create">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label asp-for="distribuidor.NombreDistribuidor" class="form-label">Nombre de Distribuidor</label>
+                        <input asp-for="distribuidor.NombreDistribuidor" class="form-control" />
+                        <span asp-validation-for="distribuidor.NombreDistribuidor" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="distribuidor.RazonSocial" class="form-label">Razon Social</label>
+                        <input asp-for="distribuidor.RazonSocial" class="form-control" />
+                        <span asp-validation-for="distribuidor.RazonSocial" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="distribuidor.Telefono" class="form-label">Telefono</label>
+                        <input asp-for="distribuidor.Telefono" class="form-control" />
+                        <span asp-validation-for="distribuidor.Telefono" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="distribuidor.AnioInicioOperacion" class="form-label">Año de Inicio de Operacion</label>
+                        <input asp-for="distribuidor.AnioInicioOperacion" class="form-control" />
+                        <span asp-validation-for="distribuidor.AnioInicioOperacion" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="distribuidor.Contacto" class="form-label">Nombre de Contacto</label>
+                        <input asp-for="distribuidor.Contacto" class="form-control" />
+                        <span asp-validation-for="distribuidor.Contacto" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        Registrar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createModalLabel">Nuevo Distribuidor</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <form asp-controller="Distribuidor" asp-action="Create">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label asp-for="distribuidor.NombreDistribuidor" class="form-label">Nombre de Distribuidor</label>
+                        <input asp-for="distribuidor.NombreDistribuidor" class="form-control" />
+                        <span asp-validation-for="distribuidor.NombreDistribuidor" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="distribuidor.RazonSocial" class="form-label">Razon Social</label>
+                        <input asp-for="distribuidor.RazonSocial" class="form-control" />
+                        <span asp-validation-for="distribuidor.RazonSocial" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="distribuidor.Telefono" class="form-label">Telefono</label>
+                        <input asp-for="distribuidor.Telefono" class="form-control" />
+                        <span asp-validation-for="distribuidor.Telefono" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="distribuidor.AnioInicioOperacion" class="form-label">Año de Inicio de Operacion</label>
+                        <input asp-for="distribuidor.AnioInicioOperacion" class="form-control" />
+                        <span asp-validation-for="distribuidor.AnioInicioOperacion" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="distribuidor.Contacto" class="form-label">Nombre de Contacto</label>
+                        <input asp-for="distribuidor.Contacto" class="form-control" />
+                        <span asp-validation-for="distribuidor.Contacto" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        Registrar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createModalLabel">¿Está seguro que desea eliminar este distribuidor?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <form asp-controller="Distribuidor" asp-action="Delete" >
+                <input asp-for="distribuidor.ID" type="hidden"/>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label asp-for="distribuidor.NombreDistribuidor" class="form-label">Nombre de Distribuidor</label>
+                        <input asp-for="distribuidor.NombreDistribuidor" class="form-control" />
+                        <span asp-validation-for="distribuidor.NombreDistribuidor" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="distribuidor.RazonSocial" class="form-label">Razon Social</label>
+                        <input asp-for="distribuidor.RazonSocial" class="form-control" />
+                        <span asp-validation-for="distribuidor.RazonSocial" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="distribuidor.Telefono" class="form-label">Telefono</label>
+                        <input asp-for="distribuidor.Telefono" class="form-control" />
+                        <span asp-validation-for="distribuidor.Telefono" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="distribuidor.AnioInicioOperacion" class="form-label">Año de Inicio de Operacion</label>
+                        <input asp-for="distribuidor.AnioInicioOperacion" class="form-control" />
+                        <span asp-validation-for="distribuidor.AnioInicioOperacion" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="distribuidor.Contacto" class="form-label">Nombre de Contacto</label>
+                        <input asp-for="distribuidor.Contacto" class="form-control" />
+                        <span asp-validation-for="distribuidor.Contacto" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        Eliminar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('openModalBtn').addEventListener('click', function () {
+                var myModal = new bootstrap.Modal(document.getElementById('createModal'), {
+                    keyboard: false
+                });
+                myModal.show();
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var editModal = document.getElementById('editModal');
+            editModal.addEventListener('show.bs.modal', function (event) {
+                var button = event.relatedTarget;
+                var distribuidorId = button.getAttribute('data-id');
+                var distribuidorNombre = button.getAttribute('data-nombre');
+                var distribuidorRazon = button.getAttribute('data-razon');
+                var distribuidorTelefono = button.getAttribute('data-telefono');
+                var distribuidorAnio = button.getAttribute('data-anio');
+                var distribuidorContacto = button.getAttribute('data-contacto');
+
+                var modal = editModal;
+                modal.querySelector('input[name="distribuidor.ID"]').value = distribuidorId;
+                modal.querySelector('input[name="distribuidor.NombreDistribuidor"]').value = distribuidorNombre;
+                modal.querySelector('input[name="distribuidor.RazonSocial"]').value = distribuidorRazon;
+                modal.querySelector('input[name="distribuidor.Telefono"]').value = distribuidorTelefono;
+                modal.querySelector('input[name="distribuidor.AnioInicioOperacion"]').value = distribuidorAnio;
+                modal.querySelector('input[name="distribuidor.Contacto"]').value = distribuidorContacto;
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var editModal = document.getElementById('deleteModal');
+            editModal.addEventListener('show.bs.modal', function (event) {
+                var button = event.relatedTarget;
+                var distribuidorId = button.getAttribute('data-id');
+                var distribuidorNombre = button.getAttribute('data-nombre');
+                var distribuidorRazon = button.getAttribute('data-razon');
+                var distribuidorTelefono = button.getAttribute('data-telefono');
+                var distribuidorAnio = button.getAttribute('data-anio');
+                var distribuidorContacto = button.getAttribute('data-contacto');
+
+                var modal = editModal;
+                modal.querySelector('input[name="distribuidor.ID"]').value = distribuidorId;
+                modal.querySelector('input[name="distribuidor.NombreDistribuidor"]').value = distribuidorNombre;
+                modal.querySelector('input[name="distribuidor.RazonSocial"]').value = distribuidorRazon;
+                modal.querySelector('input[name="distribuidor.Telefono"]').value = distribuidorTelefono;
+                modal.querySelector('input[name="distribuidor.AnioInicioOperacion"]').value = distribuidorAnio;
+                modal.querySelector('input[name="distribuidor.Contacto"]').value = distribuidorContacto;
+            });
+        });
+        
+    </script>
+}
