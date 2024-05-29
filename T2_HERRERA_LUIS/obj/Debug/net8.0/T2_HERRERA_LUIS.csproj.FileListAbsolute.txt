@@ -73,3 +73,4 @@ C:\Users\User\source\repos\T2_HERRERA_LUIS\T2_HERRERA_LUIS\obj\Debug\net8.0\refi
 C:\Users\User\source\repos\T2_HERRERA_LUIS\T2_HERRERA_LUIS\obj\Debug\net8.0\T2_HERRERA_LUIS.pdb
 C:\Users\User\source\repos\T2_HERRERA_LUIS\T2_HERRERA_LUIS\obj\Debug\net8.0\T2_HERRERA_LUIS.genruntimeconfig.cache
 C:\Users\User\source\repos\T2_HERRERA_LUIS\T2_HERRERA_LUIS\obj\Debug\net8.0\ref\T2_HERRERA_LUIS.dll
+C:\Users\User\source\repos\T2_HERRERA_LUIS\T2_HERRERA_LUIS\obj\Debug\net8.0\T2_HERRERA_LUIS.sourcelink.json

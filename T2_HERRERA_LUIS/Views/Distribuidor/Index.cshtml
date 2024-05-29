@@ -4,7 +4,8 @@
     ViewData["Title"] = "Lista de Distribuidores";
 }
 
-<h2 class="text-center mb-5">Lista de Distribuidores</h2>
+<br />
+<h2 class="text-center mb-5">Gestión de Distribuidores</h2>
 <div class="row mb-5">
     <div class="col">
         <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#createModal">
@@ -15,7 +16,7 @@
         
     </div>
 </div>
-<table class="table table-bordered">
+<table class="table table-light table-hover table-bordered">
     <thead>
         <tr>
             <th>ID</th>
@@ -109,11 +110,12 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="createModalLabel">Nuevo Distribuidor</h5>
+                <h5 class="modal-title" id="createModalLabel">Editar Distribuidor</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                 </button>
             </div>
-            <form asp-controller="Distribuidor" asp-action="Create">
+            <form asp-controller="Distribuidor" asp-action="Edit">
+                <input asp-for="distribuidor.ID" type="hidden"/>
                 <div class="modal-body">
                     <div class="mb-3">
                         <label asp-for="distribuidor.NombreDistribuidor" class="form-label">Nombre de Distribuidor</label>
@@ -168,27 +170,27 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label asp-for="distribuidor.NombreDistribuidor" class="form-label">Nombre de Distribuidor</label>
-                        <input asp-for="distribuidor.NombreDistribuidor" class="form-control" />
+                        <input asp-for="distribuidor.NombreDistribuidor" class="form-control" readonly/>
                         <span asp-validation-for="distribuidor.NombreDistribuidor" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="distribuidor.RazonSocial" class="form-label">Razon Social</label>
-                        <input asp-for="distribuidor.RazonSocial" class="form-control" />
+                        <input asp-for="distribuidor.RazonSocial" class="form-control" readonly/>
                         <span asp-validation-for="distribuidor.RazonSocial" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="distribuidor.Telefono" class="form-label">Telefono</label>
-                        <input asp-for="distribuidor.Telefono" class="form-control" />
+                        <input asp-for="distribuidor.Telefono" class="form-control" readonly/>
                         <span asp-validation-for="distribuidor.Telefono" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="distribuidor.AnioInicioOperacion" class="form-label">Año de Inicio de Operacion</label>
-                        <input asp-for="distribuidor.AnioInicioOperacion" class="form-control" />
+                        <input asp-for="distribuidor.AnioInicioOperacion" class="form-control" readonly />
                         <span asp-validation-for="distribuidor.AnioInicioOperacion" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="distribuidor.Contacto" class="form-label">Nombre de Contacto</label>
-                        <input asp-for="distribuidor.Contacto" class="form-control" />
+                        <input asp-for="distribuidor.Contacto" class="form-control" readonly />
                         <span asp-validation-for="distribuidor.Contacto" class="text-danger"></span>
                     </div>
                 </div>
